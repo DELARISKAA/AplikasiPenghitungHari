@@ -5,6 +5,13 @@
  */
 package aplikasipenghitunghari;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author user
@@ -26,22 +33,213 @@ public class PenhitungHariFrame extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
+
+        jTextField1 = new javax.swing.JTextField();
+        jPanel3 = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        jPanel6 = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField3 = new javax.swing.JTextField();
+        jPanel7 = new javax.swing.JPanel();
+        hitung = new javax.swing.JButton();
+        hapus = new javax.swing.JButton();
+        cetak = new javax.swing.JButton();
+        keluar = new javax.swing.JButton();
+
+        jTextField1.setText("jTextField1");
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 439, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 136, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        jPanel1.setBackground(new java.awt.Color(255, 204, 204));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Aplikasi Penghitung Hari", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 18))); // NOI18N
+
+        jPanel2.setPreferredSize(new java.awt.Dimension(450, 100));
+        jPanel2.setLayout(new java.awt.GridBagLayout());
+
+        jLabel1.setText("Tahun :");
+        jPanel2.add(jLabel1, new java.awt.GridBagConstraints());
+
+        jLabel2.setText("Bulan :");
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 2;
+        jPanel2.add(jLabel2, gridBagConstraints);
+
+        jTextField2.setPreferredSize(new java.awt.Dimension(200, 26));
+        jPanel2.add(jTextField2, new java.awt.GridBagConstraints());
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "--Pilih Bulan--", "Januari", "Februari", "Maret", "April", "Mei", "Juni", "Juli", "Agustus", "September", "Oktober", "November", "Desember" }));
+        jComboBox1.setPreferredSize(new java.awt.Dimension(200, 26));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 1;
+        gridBagConstraints.gridy = 2;
+        jPanel2.add(jComboBox1, gridBagConstraints);
+
+        jPanel6.setPreferredSize(new java.awt.Dimension(450, 100));
+        jPanel6.setLayout(new java.awt.GridBagLayout());
+
+        jLabel3.setText("Jumlah Hari Adalah :");
+        jPanel6.add(jLabel3, new java.awt.GridBagConstraints());
+
+        jTextField3.setText("0");
+        jTextField3.setPreferredSize(new java.awt.Dimension(300, 26));
+        jPanel6.add(jTextField3, new java.awt.GridBagConstraints());
+
+        jPanel7.setPreferredSize(new java.awt.Dimension(450, 100));
+        jPanel7.setLayout(new java.awt.GridBagLayout());
+
+        hitung.setText("HITUNG");
+        hitung.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hitungActionPerformed(evt);
+            }
+        });
+        jPanel7.add(hitung, new java.awt.GridBagConstraints());
+
+        hapus.setText("HAPUS");
+        hapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hapusActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 2;
+        gridBagConstraints.gridy = 0;
+        jPanel7.add(hapus, gridBagConstraints);
+
+        cetak.setText("CETAK");
+        cetak.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cetakActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 4;
+        gridBagConstraints.gridy = 0;
+        jPanel7.add(cetak, gridBagConstraints);
+
+        keluar.setText("KELUAR");
+        keluar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                keluarActionPerformed(evt);
+            }
+        });
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 6;
+        gridBagConstraints.gridy = 0;
+        jPanel7.add(keluar, gridBagConstraints);
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 625, Short.MAX_VALUE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void keluarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_keluarActionPerformed
+        // Membuat Event untuk koonfirmasi apakah yakin akan keluar aplikasi
+        int pilihan = JOptionPane.showConfirmDialog(
+            null,
+            "Apakah Anda yakin ingin keluar?",
+            "Konfirmasi Keluar",
+            JOptionPane.YES_NO_CANCEL_OPTION,
+            JOptionPane.QUESTION_MESSAGE
+        );
+
+        if (pilihan == JOptionPane.YES_OPTION) {
+            System.exit(0);  // Keluar dari aplikasi jika pengguna memilih "Ya"
+        } else if (pilihan == JOptionPane.NO_OPTION) {
+            // Tetap di aplikasi jika pengguna memilih "Tidak"
+        } else if (pilihan == JOptionPane.CANCEL_OPTION) {
+            // Tetap di aplikasi jika pengguna memilih "Batal"
+        }
+    }//GEN-LAST:event_keluarActionPerformed
+
+    private void hitungActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hitungActionPerformed
+    double tahun;
+    try {
+        tahun = Double.parseDouble(jTextField2.getText());
+    } catch (NumberFormatException e) {
+        JOptionPane.showMessageDialog(null, "Tahun Tidak Boleh Kosong!", "Tahun Kosong", JOptionPane.WARNING_MESSAGE);
+        return;  // Keluar dari metode jika input tahun tidak valid
+    }
+
+    double jumlahHari;
+    String bulan = (String) jComboBox1.getSelectedItem();
+
+    if (bulan.equals("Februari")) {
+        if ((tahun % 4 == 0 && tahun % 100 != 0) || (tahun % 400 == 0)) {
+            jumlahHari = 29;  // Tahun kabisat
+        } else {
+            jumlahHari = 28;
+        }
+    } else if (bulan.equals("April") || bulan.equals("Juni") || bulan.equals("September") || bulan.equals("November")) {
+        jumlahHari = 30;
+    } else {
+        jumlahHari = 31;
+    }
+
+    jTextField3.setText("Jumlah Hari pada bulan " + bulan + " Tahun " + (int) tahun + " adalah " + (int) jumlahHari);
+
+    }//GEN-LAST:event_hitungActionPerformed
+
+    private void hapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusActionPerformed
+        jTextField2.setText("");
+        jTextField3.setText("0");
+        jComboBox1.setSelectedIndex(0);
+    }//GEN-LAST:event_hapusActionPerformed
+
+    private void cetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cetakActionPerformed
+       prosesCetak();
+    }//GEN-LAST:event_cetakActionPerformed
 
     /**
      * @param args the command line arguments
@@ -79,5 +277,48 @@ public class PenhitungHariFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton cetak;
+    private javax.swing.JButton hapus;
+    private javax.swing.JButton hitung;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JButton keluar;
     // End of variables declaration//GEN-END:variables
+
+   private void prosesCetak() {
+    try {
+        // Membuka file dengan mode append (true untuk menambahkan data, bukan menimpa)
+        BufferedWriter out = new BufferedWriter(new FileWriter("jumlahhari.txt", true));
+
+        // Menulis data ke file
+        out.write("Jumlah hari pada tahun " + jTextField2.getText() + " dan bulan " +
+                  jComboBox1.getSelectedItem() + " adalah " + jTextField3.getText() + "\n");
+
+        // Pastikan data ditulis ke disk
+        out.flush();  // Opsional, untuk memastikan data langsung ditulis
+
+        // Menutup file setelah selesai menulis
+        out.close(); 
+
+        // Informasi sukses
+        JOptionPane.showMessageDialog(null, "Pencetakan berhasil", "Sukses", JOptionPane.INFORMATION_MESSAGE);
+    } catch (IOException e) {
+        // Menangani kesalahan jika terjadi masalah saat menulis ke file
+        JOptionPane.showMessageDialog(null, "Pencetakan gagal: " + e.getMessage(), "Gagal", JOptionPane.ERROR_MESSAGE);
+    }
+}
+
+
+
+
 }
